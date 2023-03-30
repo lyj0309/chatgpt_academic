@@ -46,8 +46,10 @@ CONCURRENT_COUNT = 100
 
 # 设置用户名和密码
 AUTHENTICATION = [] # [("username", "password"), ("username2", "password2"), ...]
-if os.getenv("USERNAME") != None and os.getenv("PASSWORD") != None:
-    AUTHENTICATION= [(os.getenv("USERNAME"), os.getenv("PASSWORD"))]
+if os.getenv("PASSWORD") != None:
+    AUTHENTICATION= [("admin", os.getenv("PASSWORD"))]
+if os.getenv("PWD") != None:
+    AUTHENTICATION= [("admin", os.getenv("PWD"))]
 
 # 检查一下是不是忘了改config
 if len(API_KEY) != 51:
