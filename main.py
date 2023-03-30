@@ -10,6 +10,8 @@ except: from config import proxies, WEB_PORT, LLM_MODEL, CONCURRENT_COUNT, AUTHE
 # 如果WEB_PORT是-1, 则随机选取WEB端口
 PORT = find_free_port() if WEB_PORT <= 0 else WEB_PORT
 AUTHENTICATION = None if AUTHENTICATION == [] else AUTHENTICATION
+if os.getenv("PORT") != None:
+    PORT = os.getenv("PORT")
 
 initial_prompt = "Serve me as a writing and programming assistant."
 title_html = """<h1 align="center">ChatGPT 学术优化</h1>"""
