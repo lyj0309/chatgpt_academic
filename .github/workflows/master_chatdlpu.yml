@@ -32,7 +32,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: ghcr.io/${{ secrets.AzureAppService_ContainerUsername_7c481db1273144deb4f46bc34eb5a0c1 }}/lyj0309/chatgpt:${{ github.sha }}
+        tags: ghcr.io/${{ secrets.AzureAppService_ContainerUsername_7c481db1273144deb4f46bc34eb5a0c1 }}/chatgpt:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -50,4 +50,4 @@ jobs:
         app-name: 'chatdlpu'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_9b6124aea7174d419db795cc64c3218a }}
-        images: 'ghcr.io/${{ secrets.AzureAppService_ContainerUsername_7c481db1273144deb4f46bc34eb5a0c1 }}/lyj0309/chatgpt:${{ github.sha }}'
+        images: 'ghcr.io/${{ secrets.AzureAppService_ContainerUsername_7c481db1273144deb4f46bc34eb5a0c1 }}/chatgpt:${{ github.sha }}'
